@@ -1,43 +1,44 @@
-import redis.JRedisSubdcribeListener;
-import redis.RedisPool;
-import redis.clients.jedis.Jedis;
+import java.util.Hashtable;
+import java.util.Vector;
 
 public class MainTest {
 
-	public static void main(String[] args) {
-		System.out.println(Runtime.getRuntime().availableProcessors());
-		
-		new Thread() {
+	public static void main(String[] args) throws InterruptedException {
+		// UUID.randomUUID();
+		// System.out.println(Runtime.getRuntime().availableProcessors());
+		Vector<String> vector = new Vector<String>();
+		vector.add("dfd");
+		String value=vector.get(0);
+		Hashtable<String, String> hashTable = new Hashtable<String, String>();
+		hashTable.put("keyu", "value");
+		hashTable.get("keyu");
+		int i = 200000;
+		while (i-- > 0) {
+			hashTable.put("key" + i, "value" + i);
+		}
+		Thread t1 = new Thread() {
 			@Override
 			public void run() {
-				testSubscribe();
+				int i = 100000;
+				while (i-- > 0) {
+					hashTable.remove(hashTable.keys().nextElement());
+				}
 			}
-		}.start();
-		try {
-			testPushMess();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
-
-	/**
-	 * 测试订阅发布
-	 */
-	public static void testSubscribe() {
-		Jedis jedis = RedisPool.getJedis();
-		JRedisSubdcribeListener listener = new JRedisSubdcribeListener();
-		jedis.subscribe(listener, "redisChatTest");
-	}
-
-	public static void testPushMess() throws InterruptedException {
-		Jedis jedis = RedisPool.getJedis();
-		jedis.publish("redisChatTest", "我是天才");
-		Thread.sleep(5000);
-		jedis.publish("redisChatTest", "我牛逼");
-		Thread.sleep(5000);
-		jedis.publish("redisChatTest", "哈哈");
+		};
+		Thread t2 = new Thread() {
+			@Override
+			public void run() {
+				int i = 100000;
+				while (i-- > 0) {
+					hashTable.remove(hashTable.keys().nextElement());
+				}
+			}
+		};
+		t1.start();
+		t2.start();
+		t1.join();
+		t2.join();
+		System.out.println(hashTable.size());
 	}
 
 }
