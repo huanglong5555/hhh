@@ -29,7 +29,7 @@ public class Sender {
         Session session = connection.createSession(true, Session.AUTO_ACKNOWLEDGE);  
 
         // Destination ：消息的目的地;消息发送给谁.  
-        Destination destination =  session.createQueue("my-queue");  
+        Destination destination =  session.createQueue("my-queue2");  
 
         // MessageProducer：消息发送者  
         MessageProducer producer =  session.createProducer(destination);  

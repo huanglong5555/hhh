@@ -6,6 +6,6 @@
 	<classpathentry kind="lib" path="lib/commons-pool2-2.4.2.jar" sourcepath="C:/Users/GrassMudHorse/.m2/repository/org/apache/commons/commons-pool2/2.4.2/commons-pool2-2.4.2-sources.jar"/>
 	<classpathentry kind="lib" path="lib/gson-2.8.2.jar"/>
 	<classpathentry kind="lib" path="lib/spring-core-4.2.1.RELEASE.jar" sourcepath="C:/Users/GrassMudHorse/.m2/repository/org/springframework/spring-core/4.2.1.RELEASE/spring-core-4.2.1.RELEASE-sources.jar"/>
-	<classpathentry kind="lib" path="lib/activemq-all-5.11.3.jar"/>
+	<classpathentry kind="lib" path="lib/activemq-all-5.11.3.jar" sourcepath="C:/Users/GrassMudHorse/.m2/repository/org/apache/activemq/activemq-all/5.11.3/activemq-all-5.11.3-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
