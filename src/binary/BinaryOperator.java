@@ -3,7 +3,7 @@ package binary;
 public class BinaryOperator {
 
 	public static void main(String[] args) {
-		System.out.println(add(1, 44));
+		System.out.println(add(-11, 44));
 		
 		System.out.println(fbljArr(3));
 		System.out.println(fbljArr(4));

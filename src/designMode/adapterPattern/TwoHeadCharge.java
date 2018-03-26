@@ -1,10 +1,10 @@
 package designMode.adapterPattern;
 
-public class TwoHeadCharge implements Charge{
+public class TwoHeadCharge{
 
-	@Override
-	public void doCharge() {
-		System.out.println("ddd");
+
+	public void doTwoHeadCharge() {
+		System.out.println("do two head charge!");
 	}
 
 	
